@@ -22,14 +22,6 @@ public interface TestsProperties extends Config {
 
     /**
      * @author Осюшкин Денис
-     * Дефолтный таймаут
-     * @return int
-     */
-    @Key("default.timeout")
-    int defaultTimeout();
-
-    /**
-     * @author Осюшкин Денис
      * Время ожидания видимого элемента в сек
      * @return int
      */

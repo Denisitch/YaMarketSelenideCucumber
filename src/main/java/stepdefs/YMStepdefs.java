@@ -10,7 +10,7 @@ import pages.YaMarketSubtitlePage;
 import static com.codeborne.selenide.Selenide.open;
 import static helpers.Properties.testsProperties;
 
-public class YMStepdefs extends BaseSteps {
+public class YMStepdefs {
 
     YaMarketMainPage yaMarketMainPage = new YaMarketMainPage();
 
@@ -35,6 +35,21 @@ public class YMStepdefs extends BaseSteps {
     @Then("проверяем наличие тайтла {string} после перехода в подраздел")
     public void проверяемНаличиеТайтлаПослеПереходаВПодраздел(String titleCatalogSubitem) {
         yaMarketSubtitlePage.getResultTitle(titleCatalogSubitem);
+    }
+
+    @When("пользователь выставляет фильтр {string} по критерию {string}")
+    public void пользовательВыставляетФильтрПоКритерию(String titleFilters, String titleSubfilters) {
+        yaMarketSubtitlePage.searchByFilter(titleFilters, titleSubfilters);
+    }
+
+    @And("пользователь открывает весь список товаров, листая страницу до конца вниз")
+    public void пользовательОткрываетВесьСписокТоваровЛистаяСтраницуДоКонцаВниз() {
+        yaMarketSubtitlePage.scrollToEndPage();
+    }
+
+    @Then("проверяем, что все предложения соответствуют фильтру по производителю {string}")
+    public void проверяемЧтоВсеПредложенияСоответствуютФильтруПоПроизводителю(String titleSubfilters) {
+        yaMarketSubtitlePage.validateTitleFilter(titleSubfilters);
     }
 }
 
