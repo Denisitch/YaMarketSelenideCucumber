@@ -1,6 +1,7 @@
 #language:en
   Feature: Проверка результатов поиска в YandexMarket
 
+    @ui #mvn test -D"cucumber.filter.tags=@ui"
     Scenario Outline: Проверка результатов поиска в YandexMarket с использованием Selenide
       Given пользователь переходит на страницу поиска сайта YandexMarket
       When пользователь наводит курсор на категорию "<Название категории>" в каталоге товаров
